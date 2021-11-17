@@ -1,33 +1,40 @@
 package com.otp.entities;
 
 import java.time.LocalTime;
-import java.util.Random;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 
 @Entity
 public class Email {
     
     @Id
     private String email;
-    private  String name;
     private LocalTime startDate; 
     private LocalTime endDate;
     private int otp;
+    private int count = 0;
     
-	public Email( String name, String email) {
+	public Email(String email) {
 		super();
-		this.name = name;
 		this.email = email;
-		this.startDate = LocalTime.now();
-		this.endDate = startDate.plusMinutes(5);
-		this.otp = getOtp();
 	}
+
 	
-	
+
+	public int getCount() {
+		return count;
+	}
+
+
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+
+
 	public int getOtp() {
 		return otp;
 	}
@@ -57,12 +64,13 @@ public class Email {
 	public Email() {
 		super();
 	}
-	public String getName() {
-		return name;
-	}
 	public String getEmail() {
 		return email;
 	}
+
+
+
+	
     
     // standard constructors / setters / getters / toString
     

@@ -10,11 +10,13 @@ public class Validate {
 	@Id
 	private String email;
 	private String otp;
-	public Validate(String name, String email, String otp) {
+	public Validate(String email, String otp) {
 		super();
 		this.email = email;
 		this.otp = otp;
 	}
+	
+
 
 	public String getEmail() {
 		return email;

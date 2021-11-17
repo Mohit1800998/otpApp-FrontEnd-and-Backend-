@@ -11,18 +11,19 @@ public class EmailSenderService {
 	@Autowired
 	private JavaMailSender mailSender;
 	
-	public void sendSimpleMail(String toEmail,String body,String subject) {
+	public String sendSimpleMail(String toEmail,String body,String subject) {
 		
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom("yogeshyadav80666@gmail.com");
 		message.setTo(toEmail);
 		message.setText(body);
 		message.setSubject(subject);
-		
+		System.out.println(toEmail+body+subject);
 		mailSender.send(message);
+		return "send success";
 	}
 	
-	public void sendSuccessMail(String toEmail,String body,String subject) {
+	public String sendSuccessMail(String toEmail,String body,String subject) {
 		
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom("yogeshyadav80666@gmail.com");
@@ -31,6 +32,7 @@ public class EmailSenderService {
 		message.setSubject(subject);
 		
 		mailSender.send(message);
+		return "Otp validated Successfully";
 	}
 
 
